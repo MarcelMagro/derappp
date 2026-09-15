@@ -189,6 +189,15 @@
     "salt_water_species": false
   },
   {
+    "species": "Carassius auratus",
+    "group": "Fish",
+    "derappp_species": "Carassius auratus",
+    "ott_id": 1005907,
+    "is_synonym": false,
+    "flags": "",
+    "salt_water_species": false
+  },
+  {
     "species": "Catostomus commersoni",
     "group": "Fish",
     "derappp_species": "Catostomus commersonii",
@@ -877,6 +886,15 @@
     "group": "Aquatic invertebrates",
     "derappp_species": "Hydracarina (suborder ncbi:92068)",
     "ott_id": 69277,
+    "is_synonym": false,
+    "flags": "",
+    "salt_water_species": false
+  },
+  {
+    "species": "Hyella azteca",
+    "group": "Aquatic invertebrates",
+    "derappp_species": "Hyalella azteca",
+    "ott_id": 648347,
     "is_synonym": false,
     "flags": "",
     "salt_water_species": false
@@ -1589,6 +1607,15 @@
     "derappp_species": "Desmodesmus subspicatus",
     "ott_id": 727399,
     "is_synonym": false,
+    "flags": "",
+    "salt_water_species": false
+  },
+  {
+    "species": "Scenedesmus subspicata",
+    "group": "Aquatic algae",
+    "derappp_species": "Desmodesmus subspicatus",
+    "ott_id": 727399,
+    "is_synonym": true,
     "flags": "",
     "salt_water_species": false
   },

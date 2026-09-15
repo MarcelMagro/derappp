@@ -34,7 +34,7 @@ srppp_map_manual <- tribble(
   "Difenoconazole", "894",
   "Emamectin benzoate", "5C0BFB4B-B7BF-41F4-8351-F6EEF8F45169",
   "Etoxazole", "1458",
-  "Fatty acids, C7-18 and C18-unsatd., potassium salts", "C9775705-3E09-4EA1-86F5-A514C7F8412B", # Fettsäuren, C7-C18-und C18 ungesättigt, Kaliumsalze
+  "Fatty acids C10-C20, potassium salts", "C9775705-3E09-4EA1-86F5-A514C7F8412B", # Name in srppp based on the EU name used for the 2013 EFSA conclusion: Fettsäuren, C7-C18-und C18 ungesättigt, Kaliumsalze
   "Flurochloridone", "1168",
   "Gibberellic acid", "1175",
   "Gibberellins", "1174",
@@ -60,7 +60,8 @@ srppp_map_manual <- tribble(
   "Pyrethrins", "323",
   "Soy lecithin", "988",
   "Sulfur", "338",
-  "Zoxamide", "1404")
+  "Zoxamide", "1404",
+  "Metaldehyde", "1034")
 
 # Map for substances that have the same name in the old and the new XML versions
 srppp_map_v1_v2 <- srppp_substances_merged[c("pk_v1", "pk_v2")] |>

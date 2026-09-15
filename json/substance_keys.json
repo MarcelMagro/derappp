@@ -125,6 +125,11 @@
     "key": "doi:10.2903/j.efsa.2014.3742"
   },
   {
+    "substance": "Azadirachtin",
+    "db": "efsa_conclusions",
+    "key": "doi:10.2903/j.efsa.2018.5234"
+  },
+  {
     "substance": "Azoxystrobin",
     "db": "efsa_conclusions",
     "key": "doi:10.2903/j.efsa.2010.1542"
@@ -370,6 +375,11 @@
     "key": "doi:10.2903/j.efsa.2008.167r"
   },
   {
+    "substance": "Cymoxanil",
+    "db": "efsa_conclusions",
+    "key": "doi:10.2903/j.efsa.2026.10150"
+  },
+  {
     "substance": "Cypermethrin",
     "db": "efsa_conclusions",
     "key": "doi:10.2903/j.efsa.2018.5402"
@@ -510,6 +520,11 @@
     "key": "doi:10.2903/j.efsa.2015.4209"
   },
   {
+    "substance": "Emamectin benzoate",
+    "db": "efsa_conclusions",
+    "key": "doi:10.2903/j.efsa.2012.2955"
+  },
+  {
     "substance": "Epoxiconazole",
     "db": "efsa_conclusions",
     "key": "doi:10.2903/j.efsa.2008.138r"
@@ -553,6 +568,11 @@
     "substance": "Famoxadone",
     "db": "efsa_conclusions",
     "key": "doi:10.2903/j.efsa.2015.4194"
+  },
+  {
+    "substance": "Fatty acids C10-C20, potassium salts",
+    "db": "efsa_conclusions",
+    "key": "doi:10.2903/j.efsa.2013.3023"
   },
   {
     "substance": "Fenamidone",
@@ -715,6 +735,11 @@
     "key": "doi:10.2903/j.efsa.2011.2091"
   },
   {
+    "substance": "Fluroxypyr-meptyl",
+    "db": "efsa_conclusions",
+    "key": "doi:10.2903/j.efsa.2011.2091"
+  },
+  {
     "substance": "Flutianil",
     "db": "efsa_conclusions",
     "key": "doi:10.2903/j.efsa.2014.3805"
@@ -738,6 +763,11 @@
     "substance": "Folpet",
     "db": "efsa_conclusions",
     "key": "doi:10.2903/j.efsa.2009.297r"
+  },
+  {
+    "substance": "Folpet",
+    "db": "efsa_conclusions",
+    "key": "doi:10.2903/j.efsa.2023.8139"
   },
   {
     "substance": "Folpet",
@@ -1143,6 +1173,21 @@
     "substance": "Paraffin oil",
     "db": "efsa_conclusions",
     "key": "doi:10.2903/j.efsa.2024.8913"
+  },
+  {
+    "substance": "Paraffin oil",
+    "db": "efsa_conclusions",
+    "key": "doi:10.2903/j.efsa.2026.9866"
+  },
+  {
+    "substance": "Paraffin oil",
+    "db": "efsa_conclusions",
+    "key": "doi:10.2903/j.efsa.2026.9867"
+  },
+  {
+    "substance": "Paraffin oil",
+    "db": "efsa_conclusions",
+    "key": "doi:10.2903/j.efsa.2026.9868"
   },
   {
     "substance": "Pelargonic acid",
@@ -2395,6 +2440,16 @@
     "key": "7AD9E7AE-A54C-43F8-B11A-3F195330CC04"
   },
   {
+    "substance": "Fluroxypyr-meptyl",
+    "db": "srppp",
+    "key": "1409"
+  },
+  {
+    "substance": "Fluroxypyr-meptyl",
+    "db": "srppp",
+    "key": "BE5B3348-34B8-41E7-B1A3-53FFD92891D3"
+  },
+  {
     "substance": "Flusilazole",
     "db": "srppp",
     "key": "188"
@@ -2608,6 +2663,16 @@
     "substance": "MCPA",
     "db": "srppp",
     "key": "E3F7BA6E-7A42-4E07-83F3-8EE6C995E992"
+  },
+  {
+    "substance": "MCPB",
+    "db": "srppp",
+    "key": "1067"
+  },
+  {
+    "substance": "MCPB",
+    "db": "srppp",
+    "key": "B58976CD-95F8-4981-A7B6-4ACE89E101A6"
   },
   {
     "substance": "Maltodextrin",
@@ -3510,7 +3575,7 @@
     "key": "1458"
   },
   {
-    "substance": "Fatty acids, C7-18 and C18-unsatd., potassium salts",
+    "substance": "Fatty acids C10-C20, potassium salts",
     "db": "srppp",
     "key": "C9775705-3E09-4EA1-86F5-A514C7F8412B"
   },
@@ -3678,6 +3743,11 @@
     "substance": "Zoxamide",
     "db": "srppp",
     "key": "905CE62C-691D-415C-8FAE-2A273246CDC5"
+  },
+  {
+    "substance": "Metaldehyde",
+    "db": "srppp",
+    "key": "1034"
   },
   {
     "substance": "2,6-Dichlorobenzamide",

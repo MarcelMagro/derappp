@@ -28,6 +28,10 @@
     "definition": "Concentration at which 10 percent mortality is expected"
   },
   {
+    "level": "LC20",
+    "definition": "Concentration at which 20 percent mortality is expected"
+  },
+  {
     "level": "LC50",
     "definition": "Concentration at which 50 percent mortality is expected"
   },

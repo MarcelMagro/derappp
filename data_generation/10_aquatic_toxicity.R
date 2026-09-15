@@ -44,11 +44,7 @@ check_and_add <- function(filename) {
   input_file <- file.path(derappp_input, directory, filename)
   git_file <- here("data_generation", directory, filename)
 
-  copy_to_git <- if (file.exists(git_file)) {
-    derappp:::compare_with_git(input_file, git_file)
-  } else {
-    TRUE
-  }
+  copy_to_git <- derappp:::compare_with_git(input_file, git_file)
 
   new_raw <- read_xlsx(input_file)
 
@@ -60,7 +56,16 @@ check_and_add <- function(filename) {
   } else {
     new_raw_with_RAR <- new_raw
   }
-  new <- new_raw_with_RAR |>
+
+  # Add 'expressed_as' column if not present
+  if (!("expressed_as" %in% names(new_raw_with_RAR))) {
+    new_raw_with_RAR_and_expressed_as <- new_raw_with_RAR |>
+        mutate(expressed_as = NA)
+  } else {
+    new_raw_with_RAR_and_expressed_as <- new_raw_with_RAR
+  }
+
+  new <- new_raw_with_RAR_and_expressed_as |>
 
     # Ascertain some column types
     mutate(across(c(page, sk_RAR, page_RAR, test_nr, test_system_details, life_stage),
@@ -88,7 +93,7 @@ check_and_add <- function(filename) {
       test_system, test_system_details,
       duration, life_stage,
       effect, effect_details,
-      level, sign, value, measured,
+      level, sign, value, expressed_as, measured,
       sk, page, sk_RAR, page_RAR, selected, reason, note, recorded, checked, file)
 
   # Check if substance names are registered
@@ -153,11 +158,11 @@ check_and_add <- function(filename) {
       unique(unknown_RAR_source_keys))
   }
 
-
-  # Correct concentrations of copper based endpoints
-  # EFSA endpoints for copper compounds refer to elemental copper.
-  # Concentrations are corrected here to refer to the listed substance.
-  if (any(grepl("Expressed as copper", new_with_standard_species$note))) {
+  # Correct concentrations using optional column "expressed_as", first
+  # introduced for copper based endpoints because EFSA endpoints for copper
+  # compounds refer to elemental copper.
+  # Concentrations are adapted here to refer to the listed substance.
+  if (any(!is.na(new_with_standard_species$expressed_as))) {
 
     # Bordeaux mixture is treated separately
     # In the EFSA conclusion from 2018, the copper content of the representative
@@ -178,28 +183,32 @@ check_and_add <- function(filename) {
     # an approximate copper content of 26% in the solid content of typical
     # formulations, taken from the EFSA conclusion from 2018 (p. 8)
 
-    new_with_standard_species_and_copper_resolved <- new_with_standard_species |>
+    new_with_standard_species_and_expressed_as_resolved <- new_with_standard_species |>
       left_join(chents[c("chent", "mw")], by = c(substance = "chent")) |>
+      left_join(chents[c("chent", "mw")], by = c(expressed_as = "chent"), suffix = c("", ".expressed_as")) |>
       rowwise() |> # gsub does not support vectors as replacement
       mutate(
         original_value = value,
-        value = if_else(grepl("Expressed as copper", note),
+        value = if_else(
+          is.na(expressed_as),
+          value,
           case_when(
             substance == "Bordeaux mixture" ~ value/0.26, # Copper content in the "Bordeaux mixture" is ~ 26% (see above)
-            .default = value * mw/63.55), # Convert values expressed as copper concentrations to derappp substance concentrations using molecular weights
-          value),
-        note = if_else(grepl("Expressed as copper", note),
-          case_when(
-            substance == "Bordeaux mixture" ~ "Expressed as the solids in Bordeaux mixture, assuming a content of 260 g Cu/kg in the solids",
-            .default = gsub("Expressed as copper",
-               paste0("Expressed as ", substance, " (", mw, " g/mol). ",
-                 "Original value was ", original_value, " ", as.character(units(original_value)), ", expressed as copper"), note)),
-            note))
+            .default = value * mw/mw.expressed_as)),
+        note = case_when(
+          # For Bordeaux mixture, notes are overwritten, will be improved if necessary
+          substance == "Bordeaux mixture" ~
+            "Expressed as the solids in Bordeaux mixture, assuming a content of 260 g Cu/kg in the solids",
+          is.na(expressed_as) ~ note,
+          .default = paste0(
+             "Expressed as ", substance, " (", mw, " g/mol). ",
+             "Original value was ", original_value, " ", as.character(units(original_value)),
+             ", expressed as ", expressed_as, if_else(is.na(note), "", paste0("; ", note)))))
   } else {
-    new_with_standard_species_and_copper_resolved <- new_with_standard_species
+    new_with_standard_species_and_expressed_as_resolved <- new_with_standard_species
   }
 
-  aquatic_toxicity <- bind_rows(aquatic_toxicity, new_with_standard_species_and_copper_resolved) |>
+  aquatic_toxicity <- bind_rows(aquatic_toxicity, new_with_standard_species_and_expressed_as_resolved) |>
     select(substance, formulation,
       derappp_species, group,
       test_nr, test_system, duration, life_stage, effect, effect_details, level,
@@ -245,6 +254,7 @@ aquatic_toxicity <- tibble(
   level = character(0),
   sign = factor(character(0), levels = c(">", "=", "<")),
   value = set_units(numeric(0), "mg/L"),
+  expressed_as = character(0),
   measured = factor(character(0), levels = c("nom", "mm", "ini", "im", "geom")),
     # nom: nominal, mm: mean measured, ini or im: initial measured,
     # geom: geometric mean measured
@@ -271,17 +281,36 @@ check_and_add("acetamiprid_aquatic_toxicity.xlsx")
 check_and_add("ametoctradin_aquatic_toxicity.xlsx")
 check_and_add("amidosulfuron_aquatic_toxicity.xlsx")
 check_and_add("amisulbrom_aquatic_toxicity.xlsx")
+check_and_add("azadirachtin_aquatic_toxicity.xlsx")
 check_and_add("azoxystrobin_aquatic_toxicity.xlsx")
+check_and_add("boscalid_aquatic_toxicity.xlsx")
+check_and_add("bupirimate_aquatic_toxicity.xlsx")
 check_and_add("captan_aquatic_toxicity.xlsx")
+check_and_add("chlorpyrifos-methyl_aquatic_toxicity.xlsx")
 check_and_add("copper_aquatic_toxicity.xlsx")
+check_and_add("cyazofamid_aquatic_toxicity.xlsx")
+check_and_add("cyflufenamid_aquatic_toxicity.xlsx")
+check_and_add("cymoxanil_aquatic_toxicity.xlsx")
 check_and_add("cyprodinil_aquatic_toxicity.xlsx")
+check_and_add("difenoconazole_aquatic_toxicity.xlsx")
+check_and_add("dimethomorph_aquatic_toxicity.xlsx")
+check_and_add("diquat_aquatic_toxicity.xlsx")
+check_and_add("dithianon_aquatic_toxicity.xlsx")
+check_and_add("diuron_aquatic_toxicity.xlsx")
+check_and_add("emamectin_benzoate_aquatic_toxicity.xlsx")
 check_and_add("ethephon_aquatic_toxicity.xlsx")
+check_and_add("fatty_acids_aquatic_toxicity.xlsx")
 check_and_add("fenoxaprop-P-ethyl_aquatic_toxicity.xlsx")
+check_and_add("flonicamid_aquatic_toxicity.xlsx")
+check_and_add("fluazinam_aquatic_toxicity.xlsx")
 check_and_add("fludioxonil_aquatic_toxicity.xlsx")
 check_and_add("flufenacet_aquatic_toxicity.xlsx")
+check_and_add("fluopicolide_aquatic_toxicity.xlsx")
 check_and_add("flutolanil_aquatic_toxicity.xlsx")
+check_and_add("folpet_aquatic_toxicity.xlsx")
 check_and_add("gibberellic_acid_aquatic_toxicity.xlsx")
 check_and_add("gibberellins_aquatic_toxicity.xlsx")
+check_and_add("glufosinate_aquatic_toxicity.xlsx")
 check_and_add("indoxacarb_aquatic_toxicity.xlsx")
 check_and_add("kaolin_aquatic_toxicity.xlsx")
 check_and_add("lambda-cyhalothrin_aquatic_toxicity.xlsx")

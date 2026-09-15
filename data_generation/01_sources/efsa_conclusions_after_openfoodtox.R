@@ -18,6 +18,14 @@ latest_efsa_conclusions[latest_efsa_conclusions$Substance == "Ethephon",
     "Peer review of the pesticide risk assessment of the active substance ethephon",
     "doi:10.2903/j.efsa.2023.7742", "http://dx.doi.org/10.2903/j.efsa.2023.7742")
 
+# Folpet 2023, append instead of overwriting, as we want to keep the old entry
+latest_efsa_conclusions <- bind_rows(latest_efsa_conclusions,
+  tibble(
+    Substance = "Folpet", OutputID = NA, Published = as.Date("2023-08-18"),
+    Title = "Peer review of the pesticide risk assessment of the active substance folpet",
+    DOI = "doi:10.2903/j.efsa.2023.8139", URL = "http://dx.doi.org/10.2903/j.efsa.2023.8193")
+  )
+
 # S-Metolachlor 2023
 latest_efsa_conclusions <- rbind(latest_efsa_conclusions,
   tibble(Substance = "S-Metolachlor", OutputID = NA, Published = as.Date("2023-02-28"),
@@ -319,6 +327,30 @@ latest_efsa_conclusions <- rbind(latest_efsa_conclusions,
     DOI = "doi:10.2903/j.efsa.2025.9622",
     URL = "http://dx.doi.org/10.2903/j.efsa.2025.9622"))
 
+# Paraffin oil 2026 I
+latest_efsa_conclusions <- rbind(latest_efsa_conclusions,
+  tibble(Substance = "Paraffin oil", OutputID = NA,
+    Published = as.Date("2026-02-03"),
+    Title = "Peer review of the pesticide risk assessment of the active substance paraffin oil (CAS 97862-82-3, chain lengths C16–C28)",
+    DOI = "doi:10.2903/j.efsa.2026.9866",
+    URL = "http://dx.doi.org/10.2903/j.efsa.2026.9866"))
+
+# Paraffin oil 2026 II
+latest_efsa_conclusions <- rbind(latest_efsa_conclusions,
+  tibble(Substance = "Paraffin oil", OutputID = NA,
+    Published = as.Date("2026-02-03"),
+    Title = "Peer review of the pesticide risk assessment of the active substance paraffin oil (CAS 72623-86-0, chain lengths C19–C28)",
+    DOI = "doi:10.2903/j.efsa.2026.9867",
+    URL = "http://dx.doi.org/10.2903/j.efsa.2026.9867"))
+
+# Paraffin oil 2026 III
+latest_efsa_conclusions <- rbind(latest_efsa_conclusions,
+  tibble(Substance = "Paraffin oil", OutputID = NA,
+    Published = as.Date("2026-02-03"),
+    Title = "Peer review of the pesticide risk assessment of the active substance paraffin oil (CAS 64742-46-7, chain lengths C16–C25)",
+    DOI = "doi:10.2903/j.efsa.2026.9868",
+    URL = "http://dx.doi.org/10.2903/j.efsa.2026.9868"))
+
 # Diflufenican 2026
 latest_efsa_conclusions <- rbind(latest_efsa_conclusions,
   tibble(Substance = "Diflufenican", OutputID = NA,
@@ -326,4 +358,12 @@ latest_efsa_conclusions <- rbind(latest_efsa_conclusions,
     Title = "Peer review of the pesticide risk assessment of the active substance diflufenican",
     DOI = "doi:10.2903/j.efsa.2026.9758",
     URL = "http://dx.doi.org/10.2903/j.efsa.2026.9758"))
+
+# Cymoxanil 2026
+latest_efsa_conclusions <- rbind(latest_efsa_conclusions,
+  tibble(Substance = "Cymoxanil", OutputID = NA,
+    Published = as.Date("2026-07-07"),
+    Title = "Peer review of the pesticide risk assessment of the active substance cymoxanil",
+    DOI = "doi:10.2903/j.efsa.2026.10150",
+    URL = "http://dx.doi.org/10.2903/j.efsa.2026.10150"))
 

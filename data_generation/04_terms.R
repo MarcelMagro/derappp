@@ -36,6 +36,7 @@ effect_levels <- tribble( ~ level, ~ definition,
   "ER50", "Rate at which 50 percent effect size is expected",
 
   "LC10", "Concentration at which 10 percent mortality is expected",
+  "LC20", "Concentration at which 20 percent mortality is expected",
   "LC50", "Concentration at which 50 percent mortality is expected",
 
   "LR50", "Rate at which 50 percent mortality is expected",
