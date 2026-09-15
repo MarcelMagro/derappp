@@ -327,6 +327,30 @@ latest_efsa_conclusions <- rbind(latest_efsa_conclusions,
     DOI = "doi:10.2903/j.efsa.2025.9622",
     URL = "http://dx.doi.org/10.2903/j.efsa.2025.9622"))
 
+# Paraffin oil 2026 I
+latest_efsa_conclusions <- rbind(latest_efsa_conclusions,
+  tibble(Substance = "Paraffin oil", OutputID = NA,
+    Published = as.Date("2026-02-03"),
+    Title = "Peer review of the pesticide risk assessment of the active substance paraffin oil (CAS 97862-82-3, chain lengths C16–C28)",
+    DOI = "doi:10.2903/j.efsa.2026.9866",
+    URL = "http://dx.doi.org/10.2903/j.efsa.2026.9866"))
+
+# Paraffin oil 2026 II
+latest_efsa_conclusions <- rbind(latest_efsa_conclusions,
+  tibble(Substance = "Paraffin oil", OutputID = NA,
+    Published = as.Date("2026-02-03"),
+    Title = "Peer review of the pesticide risk assessment of the active substance paraffin oil (CAS 72623-86-0, chain lengths C19–C28)",
+    DOI = "doi:10.2903/j.efsa.2026.9867",
+    URL = "http://dx.doi.org/10.2903/j.efsa.2026.9867"))
+
+# Paraffin oil 2026 III
+latest_efsa_conclusions <- rbind(latest_efsa_conclusions,
+  tibble(Substance = "Paraffin oil", OutputID = NA,
+    Published = as.Date("2026-02-03"),
+    Title = "Peer review of the pesticide risk assessment of the active substance paraffin oil (CAS 64742-46-7, chain lengths C16–C25)",
+    DOI = "doi:10.2903/j.efsa.2026.9868",
+    URL = "http://dx.doi.org/10.2903/j.efsa.2026.9868"))
+
 # Diflufenican 2026
 latest_efsa_conclusions <- rbind(latest_efsa_conclusions,
   tibble(Substance = "Diflufenican", OutputID = NA,
