@@ -141,4 +141,5 @@ species_in <- tribble(~species, ~group,
   "Aphanothece clathrata", "Aquatic cyanobacteria",
   "Chroococcus minutus", "Aquatic cyanobacteria",
   "Scenedesmus obliquus", "Aquatic algae",
+  "Ecdyonurus sp.", "Aquatic invertebrates",
   )
