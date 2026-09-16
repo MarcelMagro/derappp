@@ -137,5 +137,6 @@ species_in <- tribble(~species, ~group,
   "Coenagrion pulchellum", "Aquatic invertebrates",
   "Selenastrum bibraianum", "Aquatic algae",
   "Lumbriculus variegatus", "Aquatic invertebrates",
+  "Planorbarius corneus", "Aquatic invertebrates",
 
   )
