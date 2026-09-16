@@ -129,5 +129,11 @@ species_in <- tribble(~species, ~group,
   "Asellus aquaticus", "Aquatic invertebrates",
   "Crassostrea gigas", "Aquatic invertebrates",
   "Carassius auratus", "Fish",
+  "Cherax quadricarinatus", "Aquatic invertebrates",
+  "Neohelice granulata", "Aquatic invertebrates",
+  "Leptodactylus latrans","Amphibians",
+  "Lithobates pipiens", "Amphibians",
+  "Lithobates sylvaticus","Amphibians",
+  "Coenagrion pulchellum", "Aquatic invertebrates",
 
   )
