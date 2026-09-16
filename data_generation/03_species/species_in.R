@@ -138,5 +138,7 @@ species_in <- tribble(~species, ~group,
   "Selenastrum bibraianum", "Aquatic algae",
   "Lumbriculus variegatus", "Aquatic invertebrates",
   "Planorbarius corneus", "Aquatic invertebrates",
-
+  "Aphanothece clathrata", "Aquatic cyanobacteria",
+  "Chroococcus minutus", "Aquatic cyanobacteria",
+  "Scenedesmus obliquus", "Aquatic algae",
   )
