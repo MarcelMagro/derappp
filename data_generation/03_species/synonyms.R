@@ -76,5 +76,6 @@ species_synonyms <- tribble(~synonym, ~species,
   "Neohelice granulate","Neohelice granulata",
   "Rana pipiens","Lithobates pipiens",
   "C. pulchellum","Coenagrion pulchellum",
+  "Ankistrodesmus bibrianus","Selenastrum bibraianum",
   )
 
