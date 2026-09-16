@@ -77,5 +77,6 @@ species_synonyms <- tribble(~synonym, ~species,
   "Rana pipiens","Lithobates pipiens",
   "C. pulchellum","Coenagrion pulchellum",
   "Ankistrodesmus bibrianus","Selenastrum bibraianum",
+  "Leuciscus idus melanotus", "Leuciscus idus",
   )
 
