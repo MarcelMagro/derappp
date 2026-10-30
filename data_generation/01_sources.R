@@ -418,7 +418,7 @@ derappp_bib_rar_sssd_rr <- c(
     file = "EU_Review_Reports/MCPB_RR_2005.pdf"
   ),
   BibEntry(
-    key = "Paraffin oil ASU_DAR_07_Vol3_B9_public",
+    key = "Paraffin_oil_ASU_DAR_07_Vol3_B9_public",
     bibtype = "Report",
     institution = "European Commission",
     author = "{Greece}",
